@@ -1,0 +1,47 @@
+param(
+    $Path=$PSScriptRoot
+)
+
+$CertPath = "Cert:\CurrentUser\My\61311F82C1202DD959513F9CFA73E2AD417CDFEE"
+$cert = Get-ChildItem $CertPath
+
+if (Test-Path $Path -PathType Leaf) {
+  Get-Item $Path | Set-AuthenticodeSignature -Cert $cert
+}
+elseif (Test-Path $Path -PathType Container) {
+  Get-ChildItem -Path $Path -Filter *.ps1 -Recurse | Set-AuthenticodeSignature -Cert $cert
+  Get-ChildItem -Path $Path -Filter *.psm1 -Recurse | Set-AuthenticodeSignature -Cert $cert
+}
+
+# SIG # Begin signature block
+# MIIFmgYJKoZIhvcNAQcCoIIFizCCBYcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
+# gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUPNyRwqCU68UCLp4r8ju109+Y
+# CoGgggMmMIIDIjCCAgqgAwIBAgIQR+FckLzMU4VF0wJaPzynfzANBgkqhkiG9w0B
+# AQUFADApMScwJQYDVQQDDB5JVFNQIFByb2plY3QgVGVhbSBjb2RlIFNpZ25pbmcw
+# HhcNMTgwODAxMDAzMzIwWhcNMjMwODAxMDA0MzIwWjApMScwJQYDVQQDDB5JVFNQ
+# IFByb2plY3QgVGVhbSBjb2RlIFNpZ25pbmcwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+# DwAwggEKAoIBAQCxQF2bfNRMKdF2mHmlRtscB98hU4pzMDXOL2YGxvaXBaBsUH44
+# /EeOkTEWPXY3qb3xOm4Q9Ydu2hTtFckChRx+ol/wqIHaTdkYGS8jVthMbD8V6V3n
+# PaFixSaEslBQ+uvVyRGTWBtzOJabgoQ5EI5n0/IiFR/0O5UaN5BvFfs1J/SFx4WJ
+# o9LQSdkp6/0mbJHqrjTkR0xFNQZDR/d6Zk3hLY2ROZJdpcBONEpudwl0QrdORGM7
+# c83qg5m0OtMD9BrMboIKLWnXL6HDg71RI8e20t0Bdnu6WbEtliS9LY91BIp5u19Q
+# xCS6YoDDPsoLCl/uxiX/WsrOtP+1gOFpKuKFAgMBAAGjRjBEMA4GA1UdDwEB/wQE
+# AwIHgDATBgNVHSUEDDAKBggrBgEFBQcDAzAdBgNVHQ4EFgQUPTAEm45dFFdaUBAB
+# As4T3wi7yGAwDQYJKoZIhvcNAQEFBQADggEBAKOshYnuYAkw1QrqNJIB+cIAoc3o
+# Rn1K5UxdD1/ZZPOrJ/8TaocNOXYyG9r/yaNYcDd5PSYRTB/XMfFGmkpT3kPYlW5v
+# vVhWveX67XKQoeHrt2z1Fgmm1B0bv4WD66J6CXkNKAtcAMnFckCcFhkqC8HdcjT7
+# 60Cm4WjbnZ1fIGvlcPzs6zEq/6/evvUo3T+mBhCp5e9ye/0k++kvFa9arXMK91nG
+# mkuX+6ys6DNtF+NGa6SHeZ7c0Za+Lzqyxham0/2xnSXtcpUDb5tHyFjxnTWgY9lo
+# xXTEQOW4NopSoqOaHaKscraczQhS1/bjos16IjKtgCCs2y1gOktT3sUbWHcxggHe
+# MIIB2gIBATA9MCkxJzAlBgNVBAMMHklUU1AgUHJvamVjdCBUZWFtIGNvZGUgU2ln
+# bmluZwIQR+FckLzMU4VF0wJaPzynfzAJBgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIB
+# DDEKMAigAoAAoQKAADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgorBgEE
+# AYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQU5RHEtKgLigR0
+# C+fsFR5SIBFmvugwDQYJKoZIhvcNAQEBBQAEggEAsRFj/szMTtuJWYzpmcYrpViG
+# FMCyb8hY2mtct0eDH9nztyQ4KooH2zn3Y45QhWrOMnSnGNdHihdWfVr/JBu/0NTz
+# rZyJ2AiZf4MyIg2hAW4nWWK3RlEyOSYxlxKmCPC+vCQ/sB9uXPlyySdwDfIQrKuO
+# ddsyFogUgDCafAX8c1Nu+BU+HvdeoMuBByYvSL86E07l6qaQeqCkDdh+e0NMZNRN
+# DbnXJ8bv/47JFcXM9mv4Na7ldRrXeH7cord/N/u7TJ6rMqrBXWjno9kAbFiP7Ml2
+# CDdonMN1JEImKrntppeHHq1U4YcUikJab1Wbew845FJzNVrENXJnSHXXlKqUGA==
+# SIG # End signature block
