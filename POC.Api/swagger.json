@@ -1,0 +1,55 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "POC API",
+    "description": "A sample POC API",
+    "version": "2.0.0"
+  },
+  "host": "pocapi000.azurewebsites.net",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/api/values": {
+      "get": {
+        "description": "list of values.",
+        "operationId": "GetValues",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/values/{id}": {
+      "get": {
+        "description": "by Id",
+        "operationId": "GetValueById",
+        "parameters": [
+          {
+            "$ref": "#/parameters/id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "produces": [
+          "application/hal+json",
+          "text/plain"
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "id": {
+      "name": "id",
+      "in": "path",
+      "description": "Format - int32.",
+      "required": true,
+      "type": "integer"
+    }
+  }
+}

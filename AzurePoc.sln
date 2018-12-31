@@ -3,20 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzurePoc.Web", "AzurePoc.Web\AzurePoc.Web.csproj", "{C1D14218-027D-4C46-B524-09879875D6B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzurePoc.Web", "AzurePoc.Web\AzurePoc.Web.csproj", "{C1D14218-027D-4C46-B524-09879875D6B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ref", "ref", "{4A7ECF00-A70E-49A7-AE1A-0BCC84107BB6}"
 	ProjectSection(SolutionItems) = preProject
 		Ref\Azure Poc.docx = Ref\Azure Poc.docx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureClients", "ServiceBusClient\AzureClients.csproj", "{98D8705B-5C24-473C-9D9B-DFD0929DFDBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureClients", "ServiceBusClient\AzureClients.csproj", "{98D8705B-5C24-473C-9D9B-DFD0929DFDBE}"
 EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "ARM", "ARM\ARM.deployproj", "{217FB5D6-E00B-4E1E-9BCE-83423EC5BCF1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{1FF7488B-B8BA-4E71-8D17-3C083A808468}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POC.Web.Standard", "Web\POC.Web.Standard\POC.Web.Standard.csproj", "{F42E025B-DD80-4CC9-9B53-90EBA8369D7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{3B9AB212-4BBA-4C72-9FA3-F6D475164888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POC.Api", "POC.Api\POC.Api.csproj", "{011B6A8A-07B7-43CE-B77D-80C638C2016A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,12 +44,17 @@ Global
 		{F42E025B-DD80-4CC9-9B53-90EBA8369D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F42E025B-DD80-4CC9-9B53-90EBA8369D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F42E025B-DD80-4CC9-9B53-90EBA8369D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{011B6A8A-07B7-43CE-B77D-80C638C2016A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011B6A8A-07B7-43CE-B77D-80C638C2016A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011B6A8A-07B7-43CE-B77D-80C638C2016A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011B6A8A-07B7-43CE-B77D-80C638C2016A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F42E025B-DD80-4CC9-9B53-90EBA8369D7F} = {1FF7488B-B8BA-4E71-8D17-3C083A808468}
+		{011B6A8A-07B7-43CE-B77D-80C638C2016A} = {3B9AB212-4BBA-4C72-9FA3-F6D475164888}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B5363DC-1214-48C4-A484-6860367A7A7F}
