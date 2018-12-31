@@ -10,6 +10,7 @@ namespace POC.Web.Standard.Controllers
     {
         public ActionResult Index()
         {
+            Session["RedisData1"] = "This is stored in Redis Server , time - " + DateTime.Now.ToLongTimeString();
             return View();
         }
 
