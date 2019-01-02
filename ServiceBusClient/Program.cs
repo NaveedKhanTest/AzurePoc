@@ -9,12 +9,29 @@ namespace AzureClients
     {
         static void Main(string[] args)
         {
-            //var key = KeyVaultHandler.GetVaultKeyValueAsync().Result;
-            //ServiceBusMessageSender.SendMessages().GetAwaiter().GetResult();
-            //ServiceBusMessageReceiver.ReadMessages().GetAwaiter().GetResult();
+            try
+            {
+                //var key = KeyVaultHandler.GetVaultKeyValueAsync().Result;
+                //ServiceBusMessageSender.SendMessages().GetAwaiter().GetResult();
+                //ServiceBusMessageReceiver.ReadMessages().GetAwaiter().GetResult();
 
-            TestRedisClientManager();
+                TestQueueClient();
+                //TestRedisClientManager();
 
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+                throw;
+            }
+
+        }
+
+        private static void TestQueueClient()
+        {
+                QueueClientManager queueClient = new QueueClientManager();
+                queueClient.InsertMessageAsync();
+                var msg = queueClient.PeekMessage();
         }
 
         private static void TestRedisClientManager()
