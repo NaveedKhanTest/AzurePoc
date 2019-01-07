@@ -2,12 +2,12 @@
 
 Param(
     [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation,
-    [string] $ResourceGroupName = 'AzurePoc1',
+    [string] $ResourceGroupName = 'AzurePoc-2',
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
-    [string] $TemplateFile = 'azuredeploy.json',
-    [string] $TemplateParametersFile = 'azuredeploy.parameters.json',
+    [string] $TemplateFile = 'WebSite.json',
+    [string] $TemplateParametersFile = 'WebSite.parameters.json',
     [string] $ArtifactStagingDirectory = '.',
     [string] $DSCSourceFolder = 'DSC',
     [switch] $ValidateOnly
@@ -90,8 +90,11 @@ if ($UploadArtifacts) {
 }
 
 # Create or update the resource group using the specified template file and template parameters file
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $ResourceGroupLocation -Verbose -Force
-
+ Write-Output '', ' Going to run New-AzureRmResourceGroup....' 
+ # Creates an Azure resource group 
+ New-AzureRmResourceGroup -Name 'AzurePoc002' -Location 'Central US' 
+ #New-AzureRmResourceGroup -Name $ResourceGroupName -Location $ResourceGroupLocation -Verbose -Force
+ Write-Output '', ' Finished runing New-AzureRmResourceGroup....'
 if ($ValidateOnly) {
     $ErrorMessages = Format-ValidationOutput (Test-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
                                                                                   -TemplateFile $TemplateFile `
@@ -119,8 +122,8 @@ else {
 # SIG # Begin signature block
 # MIIFmgYJKoZIhvcNAQcCoIIFizCCBYcCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUSTQfZwaByMR9TXXALmYiih1v
-# HF2gggMmMIIDIjCCAgqgAwIBAgIQR+FckLzMU4VF0wJaPzynfzANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU0RsDjT7q+okFF4Aqo0i6jkFN
+# SaGgggMmMIIDIjCCAgqgAwIBAgIQR+FckLzMU4VF0wJaPzynfzANBgkqhkiG9w0B
 # AQUFADApMScwJQYDVQQDDB5JVFNQIFByb2plY3QgVGVhbSBjb2RlIFNpZ25pbmcw
 # HhcNMTgwODAxMDAzMzIwWhcNMjMwODAxMDA0MzIwWjApMScwJQYDVQQDDB5JVFNQ
 # IFByb2plY3QgVGVhbSBjb2RlIFNpZ25pbmcwggEiMA0GCSqGSIb3DQEBAQUAA4IB
@@ -140,11 +143,11 @@ else {
 # MIIB2gIBATA9MCkxJzAlBgNVBAMMHklUU1AgUHJvamVjdCBUZWFtIGNvZGUgU2ln
 # bmluZwIQR+FckLzMU4VF0wJaPzynfzAJBgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIB
 # DDEKMAigAoAAoQKAADAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgorBgEE
-# AYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUx0OLa/eOp6ry
-# N7Sy8OdTiPTN4YgwDQYJKoZIhvcNAQEBBQAEggEAnfeyxACvx80ESTZSYoWmrG6P
-# zye6zwk8kwNMtTydzzbT/18fGWMkKugt2dah3emIZLH7lVUjhLKv8Ql2/Z05i0yH
-# BuPmS1Ur7YFKllQgvM1gW5b4qPWczfxNEc33wFR54Ldpb9QjgdBHn3sil7uzUWxb
-# tiunzUHY+wTa9iOVfeTpOlVoAKDTUFDrxIfmdbhpT3eSFCh70IKolgOTp7BIjhCq
-# FR/lwcBjAx51kLgQDd+wuqbizIJhMYy/qry9St5nxg90cqL+bgYjnGKIfLy/cjql
-# stcAk8XfqpRIlcge3p4UweebQg4RzhXMBxjTNEcfqkzi7o259mjnEjgRlhrRtw==
+# AYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQUi1jaWKiIW9H4
+# PVSWetrd7wB4oagwDQYJKoZIhvcNAQEBBQAEggEAGfhQpHHhJq1wUUhZj7QkXBZa
+# WNuktOxkIl7PvntTmBl2r/EQz2UG1HS2IVzh+Cg8FjwTo3Ga10I3mltAnBcqSK6W
+# mLhpHKvT4l3s+ED5h2pKCDL07ffKDXChm6uepUSv34GEDHIxxxNJSz13W6GwQTc8
+# /K7TD/oR7ZFJPyDF4Gsv7XSoJRTTBzFQR7uXzEDEiAd8DZgT3n45H7n5LEUvxVe5
+# 84d+ytkPKAUwipZM4a0EVLjBprV+2M3bFNAQ54hM1tntW763SqlYkTROqw1565cs
+# i/Vgvdn7ay5UQrI3QFAA/wpsSbNcZ9+4h1uvNivhao9HmMMNY26dgYuUlK+rpg==
 # SIG # End signature block
