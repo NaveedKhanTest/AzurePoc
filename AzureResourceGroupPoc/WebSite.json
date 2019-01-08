@@ -40,8 +40,10 @@
   },
   "variables": {
     "suffix": "[uniqueString(resourceGroup().id, resourceGroup().location)]",
+    "resourceGroupName": "[toLower(resourceGroup().name)]",
     "hostingPlanName": "ServicePlanfb42ff93-ae17 (Standard: 1 Small)",
-    "webSiteName": "[toLower(concat('webSite', variables('suffix')))]"
+    "webSiteName": "[toLower(concat('webSite', variables('suffix')))]",
+    "networkName": "[substring( toLower(concat(variables('resourceGroupName'), 'network', variables('suffix'))),0,24 )]"
     //"webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
   },
   "resources": [

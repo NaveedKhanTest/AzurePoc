@@ -10,7 +10,7 @@ namespace AzureClients
     {
         // Connection String for the namespace can be obtained from the Azure portal under the 
         // 'Shared Access policies' section.
-        const string ServiceBusConnectionString = "Endpoint=sb://servicebus000.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=sHRFF/Ris2hsQwMxfhXS6beZ/kSBrIbMA6Xt/wt4JjE=";
+        const string ServiceBusConnectionString = "Endpoint=sb://servicebus000.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXxxxxxxxxxx";
         const string QueueName = "queue1";
         static IQueueClient queueClient;
 

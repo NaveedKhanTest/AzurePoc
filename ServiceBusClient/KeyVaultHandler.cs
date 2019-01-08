@@ -59,7 +59,7 @@ namespace AzureClients
             //KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 
             //var secret = await keyVaultClient.GetSecretAsync("https://keyvault1000.vault.azure.net/secrets/AppKey")
-            ////var secret = await keyVaultClient.GetSecretAsync("https://keyvault1000.vault.azure.net/secrets/AppKey/c75d83d4611146c1b8f4f8e4a80b7ef4")
+            ////var secret = await keyVaultClient.GetSecretAsync("https://keyvault1000.vault.azure.net/secrets/AppKey/XXXXX")
             ////var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
             //        .ConfigureAwait(true);
             //        //.ConfigureAwait(false);

@@ -92,7 +92,7 @@ namespace AzureClients
         {
             // Retrieve storage account from connection string
             //return CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
-            return CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storage000poc;AccountKey=TQuJeApuc1DxPevjmXACAniiuXW7Pxg8GCPYfNHTvF1IH6RNncF4/33x5xzAq51xDtoELQmPvrWPgS91OVQEPw==;EndpointSuffix=core.windows.net");
+            return CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=storage000poc;AccountKey===;EndpointSuffix=core.windows.net");
         }
     }
 }

@@ -24,7 +24,7 @@ namespace AzureClients
         //make bellow method private
         public static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
-            string cacheConnection = "RedisCache000.redis.cache.windows.net:6380,password=3iDmzMcN+LKJ+MGQTqwht4+NgkygrBc8ij24QKB0Ks0=,ssl=True,abortConnect=False";
+            string cacheConnection = "RedisCache000.redis.cache.windows.net:6380,password=xxxxxx=,ssl=True,abortConnect=False";
             return ConnectionMultiplexer.Connect(cacheConnection);
         });
 
