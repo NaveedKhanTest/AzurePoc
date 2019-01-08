@@ -90,10 +90,10 @@ if ($UploadArtifacts) {
 }
 
 # Create or update the resource group using the specified template file and template parameters file
- Write-Output '', ' Going to run New-AzureRmResourceGroup....' 
+ 
  # Creates an Azure resource group 
- New-AzureRmResourceGroup -Name 'AzurePoc002' -Location 'Central US' 
- #New-AzureRmResourceGroup -Name $ResourceGroupName -Location $ResourceGroupLocation -Verbose -Force
+ #New-AzureRmResourceGroup -Name 'AzurePoc002' -Location 'Central US' 
+ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $ResourceGroupLocation -Verbose -Force
  Write-Output '', ' Finished runing New-AzureRmResourceGroup....'
 if ($ValidateOnly) {
     $ErrorMessages = Format-ValidationOutput (Test-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
